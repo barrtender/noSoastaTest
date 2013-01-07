@@ -4,6 +4,7 @@
 package com.example.nosoasta.test;
 
 import android.test.ActivityInstrumentationTestCase2;
+import android.test.UiThreadTest;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -21,6 +22,7 @@ public class noSoastaButtonPress extends ActivityInstrumentationTestCase2<MainAc
 	/**
 	 * @param name
 	 */
+	@SuppressWarnings("deprecation")
 	public noSoastaButtonPress() {
 		super("com.example.nosoasta", MainActivity.class);
 	}
@@ -37,6 +39,14 @@ public class noSoastaButtonPress extends ActivityInstrumentationTestCase2<MainAc
 	public void testPreconditions() {
 		assertTrue(mButton.getText().toString().equals("Button"));
 		assertTrue(mTextView.getText().toString().equals("Hello world!"));
+	}
+	
+	@UiThreadTest
+	public void testButtonPress() throws InterruptedException {
+		mButton.performClick();
+		assertTrue(mTextView.getText().toString().equals("Button pressed"));
+		mButton.performClick();
+		assertTrue(mTextView.getText().toString().equals("Button pressed again"));
 	}
 
 	/* (non-Javadoc)
