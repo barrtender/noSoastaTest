@@ -14,7 +14,7 @@ import com.example.nosoasta.MainActivity;
  * @author barreri
  *
  */
-public class noSoastaButtonPress extends ActivityInstrumentationTestCase2<MainActivity> {
+public class MainActivityTest extends ActivityInstrumentationTestCase2<MainActivity> {
 
 	
 	private Button mButton;
@@ -23,7 +23,7 @@ public class noSoastaButtonPress extends ActivityInstrumentationTestCase2<MainAc
 	 * @param name
 	 */
 	@SuppressWarnings("deprecation")
-	public noSoastaButtonPress() {
+	public MainActivityTest() {
 		super("com.example.nosoasta", MainActivity.class);
 	}
 
